@@ -120,7 +120,7 @@ for row1 in reader6:
 -Finally i had a csv which looked like this called BirdsBehaviour:
 
 
-![Image of csv(Images/Final Excel output)
+![Image of csv](Images/Final Excel output.png)
 
 
 -Loaded the shapefile of Newyork state and the BirdsBehaviour csv into the Rstudio
@@ -130,9 +130,11 @@ for row1 in reader6:
 
 
 
-![Image of Newyork Airquality Map(Images/Newyork Airquality Data)
+![Image of Newyork Airquality Map](Images/Newyork Airquality Data.png)
 
+-Map displaying the Name of the birds accordig to the counties and their Breeding Status
 
+![Image of Newyork Birds and their breeding status Map](Images/Newyork Birds and Breeding status of the birds.png)
 
 
 -my final goal was to create an interactive map which could display the Bird's name,breedingstatus and quality of air for each county.
@@ -148,7 +150,8 @@ m <- leaflet(map_and_data1_as_sp) %>%
 
 m
 ```
-![Image of Basic Interactive Map(Images/Basic interactive Map)
+
+![Image of Basic Interactive Map](Images/Basic interactive Map.png)
 
 -Added the polygons,Popups,borders,labels and finally tiles to the map and following is the code:
 
@@ -200,10 +203,9 @@ m %>% addPolygons(
 
 ```
 
-Link of the interactive map is as follows:
+Image if the map:
 
-data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAABi0lEQVR42u3XvU6DUBgG4E4u3oJjr4CBCxACowtOOhN+ll4CTiXMDnoNjRNxI65NY2PYcGtMWqCkxGo0+BNz5NMeg1ppoUdgOG/ypkPD16eH9gCtFg0NDU3zomlaW1XVw/TVSNstWGNxbPtfcIqiiKZpnriue+37/lMURahI4Rg4FmbALOIrZ1nWafohSVHYEmgCs4iuJJwa+Pab4nBhFswkuYJGmdP6V4MgeE6BRySB3TAMEcnCTKJAz/MQyZYGCoKwK4pi50edXu8MZTscXqGX17fSLQ0EEFojgHx4TKoH4hUcTyKUVwBOo1n1QAjHcfwqJADHk6AeYBYZTuPmAfFpht9aHN81C7gOrjZgHu4TVCMwDwf7oG2ff0NWClyB6/A8b49GN6jfH3whKwVi3Cye/8IxDHMgSdIx3pQHg8sPnONcVLcPLtucMS59e0eWZSs7HLC38/tqryTZzTmLS7sFwza57hL7F2Mky7L7GIfvZhoBXARQ2xgH0XV9r8RDUm5hJn0MpaGhqTHvbK0yKslszG8AAAAASUVORK5CYII=
-
+![Image of Interactive Map](Images/Interactive Map.png)
 
 
 

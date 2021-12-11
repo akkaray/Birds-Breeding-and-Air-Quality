@@ -4,6 +4,7 @@ Readme file for Final project
 Firstly i merged the 5 datasets,opened a new csv file and wrote the first dataset to the newfile,i wanted to check the data only for newyork city so filtered newyork's data.
 The newcsv didnot have the header so i added the values of header to a list and added it to the csv
 following is the script:
+```python
 import csv
 f=open('C:/Users/yasha/OneDrive/Documents/Yahsaswini/Big data procs/Final Project/daily_aqi_by_county_2000.csv','r')
 reader = csv.reader(f)
@@ -18,11 +19,12 @@ for row in reader:
 n+= 1
 
 f.close
-f2.close()
+f2.close()```
 
 -Opened the remaininng datasets and wrote the columns to the new csv
 following is the script:
 
+```python
 import csv 
 
 f1=open('C:/Users/yasha/OneDrive/Documents/Yahsaswini/Big data procs/Final Project/daily_aqi_by_county_2001.csv','r')
@@ -36,7 +38,7 @@ for row in reader1:
 n+=1
     
 f1.close
-f2.close()
+f2.close()```
 
 
 .I have opened the final merged file of the Airquality and the Birds breeding data where i wanted to lookup the values of "Category" which had list of Good,moderate,unhealthy and veryunhealthy
@@ -45,6 +47,7 @@ values to the breeding status column in Birds data where the granularity of date
 .Defined the names of the columns and formated the county names by using "lower()"and ".replace()" as they were represented differently in each dataset
 -defined the key which was derived by merging the columns of Date and County using the string concatenation operator "+" and the lookup value for key was the category of airquality.
 following is the code for data
+```python
 import csv
 
 Bird_data = open('C:/Users/yasha/OneDrive/Documents/Yahsaswini/Big data procs/Final Project/Breeding_Bird_Atlas__Second_Edition__2000-2005.csv', 'r')
@@ -68,7 +71,8 @@ for row2 in reader7:
             
         n+=1
     
-print(AQI_lookup['2000-04-18_st lawrence'])
+print(AQI_lookup['2000-04-18_st lawrence'])```
+
 -I had the lookup values from AQI dataset,needed to work on the cleansing of Birds dataset 
 -Started by opening a csv so as to write the resultant output data into a new csv file,created an empty list called "Birds_behavior"and then applied filters as i wanted to observe the behaviour of the birds that were threatened species
 -to match the granularity the date in birds dataset had a different format,so changed it using the datetime functions,
@@ -79,6 +83,7 @@ print(AQI_lookup['2000-04-18_st lawrence'])
 -Then using the "if" statement if the keys in both the datasets matched then i appended the values of Date,County,Name of Bird,Breeding status,Breeding behavior of birds,Status of Airquality
 -I had an issue here cause the Date and county were joined strings so i went back to the key values and added a character of "_" so later i could split them while writing it to the csv file
 -following is the script:
+```python
 import datetime,csv
 
 header=["Date","County","Name of Bird","Breeding_Behavior","Breeding_Status","AirQuality"]
@@ -111,11 +116,11 @@ for row1 in reader6:
             Birds_behaviour.append(AQI_lookup[k])#AQI_lookup[k]
             
             #print(Birds_behaviour)
-            writer.writerow(Birds_behaviour)
+            writer.writerow(Birds_behaviour)```
 -Finally i had a csv which looked like this called BirdsBehaviour:
 
 
-![Image of csv(Images/Final Excel output)
+![Image of csv](Images/Final Excel output.png)
 
 
 -Loaded the shapefile of Newyork state and the BirdsBehaviour csv into the Rstudio
@@ -125,16 +130,18 @@ for row1 in reader6:
 
 
 
-![Image of Newyork Airquality Map(Images/Newyork Airquality Data)
+![Image of Newyork Airquality Map](Images/Newyork Airquality Data.png)
 
+-Map displaying the Name of the birds accordig to the counties and their Breeding Status
 
+![Image of Newyork Birds and their breeding status Map](Images/Newyork Birds and Breeding status of the birds.png)
 
 
 -my final goal was to create an interactive map which could display the Bird's name,breedingstatus and quality of air for each county.
 
 -Used leaflet in R to create a basic interactive map
 following is the code:
-```{r}
+```r
 library(leaflet)
 m <- leaflet(map_and_data1_as_sp) %>% 
   addTiles()  %>% 
@@ -143,11 +150,12 @@ m <- leaflet(map_and_data1_as_sp) %>%
 
 m
 ```
-![Image of Basic Interactive Map(Images/Basic interactive Map)
+
+![Image of Basic Interactive Map](Images/Basic interactive Map.png)
 
 -Added the polygons,Popups,borders,labels and finally tiles to the map and following is the code:
 
-```{r}
+```r
 mytext <- paste(
     "<strong>County:<strong> ", map_and_data1_as_sp@data$NAME,"<br/>", 
     "<strong>Bird<strong>: ", map_and_data1_as_sp@data$Name.of.Bird, "<br/>",
@@ -168,7 +176,7 @@ pal4<-colorNumeric(
   palette = "viridis",
   domain = map_and_data_as_sp$ALAND)
 ```
-```{r}
+```r
 m %>% addPolygons(
   fillColor = ~pal2(ALAND),
   weight = 2,
@@ -195,10 +203,9 @@ m %>% addPolygons(
 
 ```
 
-Link of the interactive map is as follows:
+Image if the map:
 
-data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAABi0lEQVR42u3XvU6DUBgG4E4u3oJjr4CBCxACowtOOhN+ll4CTiXMDnoNjRNxI65NY2PYcGtMWqCkxGo0+BNz5NMeg1ppoUdgOG/ypkPD16eH9gCtFg0NDU3zomlaW1XVw/TVSNstWGNxbPtfcIqiiKZpnriue+37/lMURahI4Rg4FmbALOIrZ1nWafohSVHYEmgCs4iuJJwa+Pab4nBhFswkuYJGmdP6V4MgeE6BRySB3TAMEcnCTKJAz/MQyZYGCoKwK4pi50edXu8MZTscXqGX17fSLQ0EEFojgHx4TKoH4hUcTyKUVwBOo1n1QAjHcfwqJADHk6AeYBYZTuPmAfFpht9aHN81C7gOrjZgHu4TVCMwDwf7oG2ff0NWClyB6/A8b49GN6jfH3whKwVi3Cye/8IxDHMgSdIx3pQHg8sPnONcVLcPLtucMS59e0eWZSs7HLC38/tqryTZzTmLS7sFwza57hL7F2Mky7L7GIfvZhoBXARQ2xgH0XV9r8RDUm5hJn0MpaGhqTHvbK0yKslszG8AAAAASUVORK5CYII=
-
+![Image of Interactive Map](Images/Interactive Map.png)
 
 
 
