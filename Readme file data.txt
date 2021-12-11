@@ -1,4 +1,3 @@
-# Final-Project
 Readme file for Final project
 .I have the data of Breeding birds from 2000-2005 distributed according to the county and 5 datasets of air quality index for each year from 2000 to 2005 distributed by county
 Firstly i merged the 5 datasets,opened a new csv file and wrote the first dataset to the newfile,i wanted to check the data only for newyork city so filtered newyork's data.
