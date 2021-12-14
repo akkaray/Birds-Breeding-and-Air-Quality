@@ -19,7 +19,8 @@ for row in reader:
 n+= 1
 
 f.close
-f2.close()```
+f2.close()
+```
 
 -Opened the remaininng datasets and wrote the columns to the new csv
 following is the script:
@@ -38,7 +39,8 @@ for row in reader1:
 n+=1
     
 f1.close
-f2.close()```
+f2.close()
+```
 
 
 .I have opened the final merged file of the Airquality and the Birds breeding data where i wanted to lookup the values of "Category" which had list of Good,moderate,unhealthy and veryunhealthy
@@ -71,7 +73,8 @@ for row2 in reader7:
             
         n+=1
     
-print(AQI_lookup['2000-04-18_st lawrence'])```
+print(AQI_lookup['2000-04-18_st lawrence'])
+```
 
 -I had the lookup values from AQI dataset,needed to work on the cleansing of Birds dataset 
 -Started by opening a csv so as to write the resultant output data into a new csv file,created an empty list called "Birds_behavior"and then applied filters as i wanted to observe the behaviour of the birds that were threatened species
@@ -116,7 +119,8 @@ for row1 in reader6:
             Birds_behaviour.append(AQI_lookup[k])#AQI_lookup[k]
             
             #print(Birds_behaviour)
-            writer.writerow(Birds_behaviour)```
+            writer.writerow(Birds_behaviour)
+```
 -Finally i had a csv which looked like this called BirdsBehaviour:
 
 
@@ -130,11 +134,11 @@ for row1 in reader6:
 
 
 
-![Image of Newyork_Airquality_Map](Images/Newyork_Airquality_Data.png)
+![Image of Newyork Airquality Map](Images/Newyork_Airquality_Data.png)
 
 -Map displaying the Name of the birds accordig to the counties and their Breeding Status
 
-![Image of Newyork_Birds_and_their_breeding_status_Map](Images/Birds_and_Breeding_status_of_the_birds.png)
+![Image of Newyork Birds and their breeding status Map](Images/Birds_and_Breeding_status_of_the_birds.png)
 
 
 -my final goal was to create an interactive map which could display the Bird's name,breedingstatus and quality of air for each county.
